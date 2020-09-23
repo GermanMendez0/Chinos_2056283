@@ -20,3 +20,30 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Rutas de Media-types
+Route::get("mediatypes/insert", "MediaTypesController@showmass");
+Route::post("mediatypes/store", "MediaTypesController@storemass");
+
+//Ruta de prueba para la masterPage
+Route::get('masterpage', function () {
+    return view('layouts.masterpage');
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Rutas resource
+
+//Rutas de prefijo: imagen
+Route::prefix('imagenes')->group(function(){
+    Route::get('Crear','ImageController@create');
+    Route::post('Guardar','ImageController@store');
+});
+
+Route::get('pdf',"PDFController@index");
